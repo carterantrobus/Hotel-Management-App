@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Services Management</title>
-    <link th:href="@{../static/style.css}" rel="stylesheet" type="text/css"/>
-</head>
+<!-- <link th:href="@{../static/style.css}" rel="stylesheet" type="text/css"/> -->
+    <link href="../static/style.css" rel="stylesheet" type="text/css" /></head>
 <body>
     <header>
-        <h1>HOTEL MANAGER</h1>
+        <h1 class="title">HOTEL MANAGER</h1>
         <h2>Services</h2>
         <nav class="nav_bar">
             <a href="customers.html">Customers</a>
@@ -17,6 +17,35 @@
             <a href="services.html">Services</a>
         </nav>
     </header>
+	<section>
+	    <form th:action="@{/save}" th:object="${product}" method="post" class="input-fields"> 
+	        <div class="input-row">
+	            <label for="name">Name:</label>
+	            <input type="text" id="name" name="name" th:field="*{name}"/>
+	        </div>
+	        <div class="input-row">
+	            <label for="description">Description:</label>
+	            <input type="text" id="description" name="description" th:field="*{description}"/>
+	        </div>
+	        <div class="input-row">
+	            <label for="price">Price:</label>
+	            <input type="text" id="price" name="price" th:field="*{price}"/>
+	        </div>
+	        <input type="submit" value="Submit" class="button">
+	    </form>
+	</section>
 
+    <section class="customers">
+    	<!-- placeholder listing box just to show what it looks like when real stuff is submitted -->
+        <div class="floating-box">
+            <img src="../images/service.png">
+            <div class="text-column">
+            	<!-- these are placeholders, change to real items later -->
+	            <p>Name...</p>
+	            <p>Description...</p>
+	            <p>Price...</p>
+        </div>
+        </div>
+    </section>
 </body>
 </html>
