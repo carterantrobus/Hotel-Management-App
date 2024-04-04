@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Management</title>
+<!-- <link th:href="@{../static/style.css}" rel="stylesheet" type="text/css"/> -->
+    <link href="../static/style.css" rel="stylesheet" type="text/css" /></head>
+<body>
+    <header>
+        <h1 class="title">HOTEL MANAGER</h1>
+        <h2>Bookings</h2>
+        <nav class="nav_bar">
+            <a href="customers.html">Customers</a>
+            <a href="bookings.html">Bookings</a>
+            <a href="rooms.html">Rooms</a>
+            <a href="services.html">Services</a>
+        </nav>
+    </header>
+	<section>
+	    <form th:action="@{/save}" th:object="${product}" method="post" class="input-fields"> 
+	        <div class="input-row">
+	            <label for="customerId">Customer Id:</label>
+	            <input type="text" id="customerId" name="customerId" th:field="*{customerId}"/>
+	        </div>
+	        <div class="input-row">
+	            <label for="roomId">Room Id:</label>
+	            <input type="text" id="roomId" name="roomId" th:field="*{roomId}"/>
+	        </div>
+	        <div class="input-row">
+	            <label for="startDate">Start Date:</label>
+	            <input type="text" id="startDate" name="startDate" th:field="*{startDate}"/>
+	        </div>
+	        <div class="input-row">
+	            <label for="endDate">End Date:</label>
+	            <input type="text" id="endDate" name="endDate" th:field="*{endDate}"/>
+	        </div>
+	        <input type="submit" value="Submit" class="button">
+	    </form>
+	</section>
+
+    <section class="customers">
+    	<!-- placeholder listing box just to show what it looks like when real stuff is submitted -->
+        <div class="floating-box">
+            <img src="../images/booking.png">
+            <div class="text-column">
+            	<!-- these are placeholders, change to real items later -->
+	            <p>Customer Id...</p>
+	            <p>Room Id...</p>
+	            <p>Start Date...</p>
+	            <p>End Date...</p>
+        </div>
+        </div>
+    </section>
+</body>
+</html>
