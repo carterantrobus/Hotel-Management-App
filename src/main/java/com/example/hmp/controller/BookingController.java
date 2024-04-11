@@ -35,6 +35,12 @@ public class BookingController {
     /* Saving bookings */
     @PostMapping("/bookings")
     public String saveBooking(@ModelAttribute("Booking") Booking booking) {
+        if (booking.getCustomerId() == null || booking.getRoomId() == null) {
+            // Handle the case where customerId or roomId is null
+            // You can return an error message or redirect to an error page
+            return "redirect:/error";
+        }
+        
         bookingService.save(booking);        
         return "redirect:/bookings";
     }

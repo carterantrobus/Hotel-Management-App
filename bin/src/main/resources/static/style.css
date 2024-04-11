@@ -122,6 +122,11 @@ header {
     color: rgb(255, 255, 255, .7);
 }
 
+/* Removing hyperlink off new start */
+a {
+    color: inherit; 
+    text-decoration: none; 
+}
 
 a{
     text-decoration: none;

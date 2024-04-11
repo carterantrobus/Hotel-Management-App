@@ -41,6 +41,7 @@
                 <!-- Use th:field to bind the input to the booking's endDate -->
                 <input type="date" id="endDate" name="endDate" th:field="*{endDate}"/>
             </div>
+            
             <input type="submit" value="Submit" class="button">
         </form>
     </section>
@@ -50,8 +51,8 @@
 	    <div class="floating-box" th:each="booking : ${bookings}">
 	        <img th:src="@{/images/booking.png}" alt="Booking Image">
 	        <div class="text-column">
-	            <p>Customer Id: [[${booking.customerId}]]</p>
-	            <p>Room Id: [[${booking.roomId}]]</p>
+	            <p>Customer Id: [[${booking.customerId.id}]]</p>
+	            <p>Room Id: [[${booking.roomId.id}]]</p>
 	            <p>Start Date: [[${booking.startDate}]]</p>
 	            <p>End Date: [[${booking.endDate}]]</p>
 	        </div>

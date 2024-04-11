@@ -4,48 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Room Management</title>
-<!-- <link th:href="@{../static/style.css}" rel="stylesheet" type="text/css"/> -->
-    <link href="../static/style.css" rel="stylesheet" type="text/css" /></head>
+    <link th:href="@{/style.css}" rel="stylesheet" type="text/css" />
+</head>
 <body>
     <header>
         <h1 class="title">HOTEL MANAGER</h1>
         <h2>Rooms</h2>
         <nav class="nav_bar">
-            <a href="customers.html">Customers</a>
-            <a href="bookings.html">Bookings</a>
-            <a href="rooms.html">Rooms</a>
-            <a href="services.html">Services</a>
+            <a th:href="@{/customers}">Customers</a>
+            <a th:href="@{/bookings}">Bookings</a>
+            <a th:href="@{/rooms}">Rooms</a>
+            <a th:href="@{/services}">Services</a>
         </nav>
     </header>
-	<section>
-	    <form th:action="@{/save}" th:object="${product}" method="post" class="input-fields"> 
-	        <div class="input-row">
-	            <label for="roomNum">Room Number:</label>
-	            <input type="text" id="roomNum" name="roomNum" th:field="*{roomNum}"/>
-	        </div>
-	        <div class="input-row">
-	            <label for="type">Type:</label>
-	            <input type="text" id="type" name="type" th:field="*{type}"/>
-	        </div>
-	        <div class="input-row">
-	            <label for="price">Price:</label>
-	            <input type="text" id="price" name="price" th:field="*{price}"/>
-	        </div>
-	        <input type="submit" value="Submit" class="button">
-	    </form>
-	</section>
+    <section>
+        <form th:action="@{/rooms}" th:object="${room}" method="post" class="input-fields">
 
-    <section class="rooms">
-    	<!-- placeholder listing box just to show what it looks like when real stuff is submitted -->
-        <div class="floating-box">
-            <img src="../images/room.jpg">
-            <div class="text-column">
-            	<!-- these are placeholders, change to real items later -->
-	            <p>Room Number...</p>
-	            <p>Type...</p>
-	            <p>Price...</p>
-        </div>
-        </div>
+            <div class="input-row">
+                <label for="roomNumber">Room Number:</label>
+                <!-- Use th:field to bind the input to the room's roomNumber -->
+                <input type="text" id="roomNumber" name="roomNumber" th:field="*{roomNumber}" />
+            </div>
+            <div class="input-row">
+                <label for="type">Type:</label>
+                <!-- Use th:field to bind the input to the room's type -->
+                <input type="text" id="type" name="type" th:field="*{type}" />
+            </div>
+            <div class="input-row">
+                <label for="price">Price:</label>
+                <!-- Use th:field to bind the input to the room's price -->
+                <input type="text" id="price" name="price" th:field="*{price}" />
+            </div>
+            <input type="submit" value="Submit" class="button">
+        </form>
     </section>
+    <section class="rooms">
+        <!-- Showing submitted forms -->
+	    <div class="floating-box" th:each="room : ${rooms}">
+	        <img src="../images/room.jpg">
+	        <div class="text-column">
+	            <p>Room Number: [[${room.roomNumber}]]</p>
+	            <p>Type: [[${room.type}]]</p>
+	            <p>Price: [[${room.price}]]</p>
+	        </div>
+	    </div>
+</section>
 </body>
 </html>
