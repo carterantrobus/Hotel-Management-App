@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Services Management</title>
+    <!-- Link to your CSS file -->
     <link th:href="@{/style.css}" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -22,30 +23,34 @@
         <form th:action="@{/services}" th:object="${providedService}" method="post" class="input-fields"> 
             <div class="input-row">
                 <label for="name">Name:</label>
+                <!-- Use th:field to bind the input to the service's name -->
                 <input type="text" id="name" name="name" th:field="*{name}"/>
             </div>
             <div class="input-row">
                 <label for="description">Description:</label>
+                <!-- Use th:field to bind the input to the service's description -->
                 <input type="text" id="description" name="description" th:field="*{description}"/>
             </div>
             <div class="input-row">
                 <label for="price">Price:</label>
+                <!-- Use th:field to bind the input to the service's price -->
                 <input type="text" id="price" name="price" th:field="*{price}"/>
             </div>
             <input type="submit" value="Submit" class="button">
         </form>
     </section>
 
-    <section class="customers">
-        <!-- Placeholder listing box just to show what it looks like when real stuff is submitted -->
-        <div class="floating-box" th:each="product : ${products}">
-            <img th:src="@{/images/service.png}">
-            <div class="text-column">
-                <p th:text="${product.name}">Name...</p>
-                <p th:text="${product.description}">Description...</p>
-                <p th:text="${product.price}">Price...</p>
-            </div>
-        </div>
-    </section>
+    <section class="service">
+        <!-- Showing submitted forms -->
+	    <div class="floating-box" th:each="service : ${services}">
+	        <img th:src="@{/images/service.png}">
+	        <div class="text-column">
+	            <p>Product Name: [[${service.name}]]</p>
+	            <p>Description: [[${service.description}]]</p>
+	            <p>Price: [[${service.price}]]</p>
+	        </div>
+	    </div>
+	</section>
+
 </body>
 </html>

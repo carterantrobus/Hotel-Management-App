@@ -39,16 +39,15 @@
             <input type="submit" value="Submit" class="button">
         </form>
     </section>
-
     <section class="customers">
-        <!-- Placeholder listing box just to show what it looks like when real stuff is submitted -->
-        <div class="floating-box">
+        <!-- Showing submitted forms -->
+        <div class="floating-box" th:each="customer : ${customers}">
             <img th:src="@{/images/customer.png}" alt="Booking Image">
             <div class="text-column">
-                <!-- These are placeholders, change to real items later -->
-                <p th:text="${customer.name}">Name...</p>
-                <p th:text="${customer.phoneNumber}">Phone Number...</p>
-                <p th:text="${customer.email}">Email...</p>
+                <p>Name: [[${customer.name}]]</p>
+				<p>Phone Number: [[${customer.phoneNumber}]]</p>
+				<p>Email: [[${customer.email}]]</p>
+
             </div>
         </div>
     </section>

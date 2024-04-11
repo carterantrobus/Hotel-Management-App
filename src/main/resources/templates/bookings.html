@@ -34,29 +34,30 @@
             <div class="input-row">
                 <label for="startDate">Start Date:</label>
                 <!-- Use th:field to bind the input to the booking's startDate -->
-                <input type="text" id="startDate" name="startDate" th:field="*{startDate}"/>
+                <input type="date" id="startDate" name="startDate" th:field="*{startDate}"/>
             </div>
             <div class="input-row">
                 <label for="endDate">End Date:</label>
                 <!-- Use th:field to bind the input to the booking's endDate -->
-                <input type="text" id="endDate" name="endDate" th:field="*{endDate}"/>
+                <input type="date" id="endDate" name="endDate" th:field="*{endDate}"/>
             </div>
             <input type="submit" value="Submit" class="button">
         </form>
     </section>
 
-    <section class="customers">
-        <!-- Placeholder listing box just to show what it looks like when real stuff is submitted -->
-        <div class="floating-box">
-		<img th:src="@{/images/booking.png}" alt="Booking Image">
-            <div class="text-column">
-                <!-- These are placeholders, change to real items later -->
-                <p th:text="${booking.customerId}">Customer Id...</p>
-                <p th:text="${booking.roomId}">Room Id...</p>
-                <p th:text="${booking.startDate}">Start Date...</p>
-                <p th:text="${booking.endDate}">End Date...</p>
-            </div>
-        </div>
-    </section>
+    <section class="bookings">
+        <!-- Showing submitted forms -->
+	    <div class="floating-box" th:each="booking : ${bookings}">
+	        <img th:src="@{/images/booking.png}" alt="Booking Image">
+	        <div class="text-column">
+	            <p>Customer Id: [[${booking.customerId}]]</p>
+	            <p>Room Id: [[${booking.roomId}]]</p>
+	            <p>Start Date: [[${booking.startDate}]]</p>
+	            <p>End Date: [[${booking.endDate}]]</p>
+	        </div>
+	    </div>
+	</section>
 </body>
 </html>
+
+
