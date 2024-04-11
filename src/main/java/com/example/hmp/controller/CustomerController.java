@@ -1,15 +1,16 @@
 package com.example.hmp.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import com.example.hmp.model.Customer;
 import com.example.hmp.service.CustomerService;
 
 import java.util.List;
 
-@RestController
-@RequestMapping("/customers")
+@Controller
 public class CustomerController {
 
     private final CustomerService customerService;
@@ -19,28 +20,12 @@ public class CustomerController {
         this.customerService = customerService;
     }
 
-    @GetMapping("/name/{name}")
-    public List<Customer> getCustomersByName(@PathVariable String name) {
-        return customerService.findByName(name);
+    @GetMapping("/customers")
+    public String showCustomersPage(Model model) {
+        List<Customer> customers = customerService.findAll();
+        model.addAttribute("customers", customers);
+        model.addAttribute("customer", new Customer()); // Add an empty customer object
+        return "customers"; // This corresponds to customers.html in templates directory
     }
 
-    @GetMapping("/phoneNumber/{phoneNumber}")
-    public Customer getCustomerByPhoneNumber(@PathVariable String phoneNumber) {
-        return customerService.findByPhoneNumber(phoneNumber);
-    }
-
-    @GetMapping("/email/{email}")
-    public Customer getCustomerByEmail(@PathVariable String email) {
-        return customerService.findByEmail(email);
-    }
-
-    @PostMapping
-    public Customer createCustomer(@RequestBody Customer customer) {
-        return customerService.save(customer);
-    }
-
-    @GetMapping
-    public List<Customer> getAllCustomers() {
-        return customerService.findAll();
-    }
 }

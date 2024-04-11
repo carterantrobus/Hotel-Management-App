@@ -1,15 +1,14 @@
 package com.example.hmp.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import com.example.hmp.model.ProvidedService;
 import com.example.hmp.service.ProvidedServiceService;
 
-import java.util.List;
-
-@RestController
-@RequestMapping("/services")
+@Controller
 public class ProvidedServiceController {
 
     private final ProvidedServiceService providedServiceService;
@@ -19,39 +18,9 @@ public class ProvidedServiceController {
         this.providedServiceService = providedServiceService;
     }
 
-    @GetMapping("/name/{name}")
-    public List<ProvidedService> getServicesByName(@PathVariable String name) {
-        return providedServiceService.findByName(name);
-    }
-
-    @GetMapping("/description/{description}")
-    public List<ProvidedService> getServicesByDescription(@PathVariable String description) {
-        return providedServiceService.findByDescription(description);
-    }
-
-    @GetMapping("/price/{price}")
-    public List<ProvidedService> getServicesByPrice(@PathVariable Double price) {
-        return providedServiceService.findByPrice(price);
-    }
-
-    @PostMapping
-    public ProvidedService createService(@RequestBody ProvidedService service) {
-        return providedServiceService.save(service);
-    }
-
-    @DeleteMapping("/name/{serviceName}")
-    public void deleteService(@PathVariable String serviceName) {
-        List<ProvidedService> services = providedServiceService.findByName(serviceName);
-        if (!services.isEmpty()) {
-            providedServiceService.delete(services.get(0));
-        } else {
-
-        }
-    }
-
-
-    @GetMapping
-    public List<ProvidedService> getAllServices() {
-        return providedServiceService.findAll();
+    @GetMapping("/services")
+    public String showServicesPage(Model model) {
+        model.addAttribute("providedService", new ProvidedService()); // Add an empty provided service object
+        return "services"; // This corresponds to services.html in templates directory
     }
 }

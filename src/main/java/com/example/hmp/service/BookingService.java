@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.hmp.model.Booking;
+import com.example.hmp.model.Customer;
+import com.example.hmp.model.Room;
 import com.example.hmp.repository.BookingRepository;
 @Service
 public class BookingService {
@@ -18,16 +20,16 @@ public class BookingService {
 		this.bookingRepository = bookingRepository;
 	}
 
-    public List<Booking> findByCustomerId(Long customerId) {
+    public List<Booking> findByCustomerId(Customer customerId) {
         return bookingRepository.findByCustomerId(customerId);
     }
 
-    public List<Booking> findByRoomId(Long roomId) {
+    public List<Booking> findByRoomId(Room roomId) {
         return bookingRepository.findByRoomId(roomId);
     }
 
     public List<Booking> findByDate(LocalDate startDate, LocalDate endDate) {
-        return bookingRepository.findByDate(startDate, endDate);
+        return bookingRepository.findByStartDateBetween(startDate, endDate);
     }
 
     public Booking save(Booking booking) {

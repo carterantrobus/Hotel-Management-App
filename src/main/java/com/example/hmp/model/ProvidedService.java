@@ -3,6 +3,8 @@ package com.example.hmp.model;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Column;
@@ -22,7 +24,10 @@ public class ProvidedService {
 
   @Column(name = "price", nullable = false)
   private Double price;
-
+  
+  @ManyToOne
+  @JoinColumn(name = "booking_id")
+  private Booking booking;
   // Constructors, getters, and setter
   public ProvidedService() {}
 

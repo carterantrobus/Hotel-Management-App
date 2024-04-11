@@ -1,15 +1,16 @@
 package com.example.hmp.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import com.example.hmp.model.Room;
 import com.example.hmp.service.RoomService;
 
 import java.util.List;
 
-@RestController
-@RequestMapping("/rooms")
+@Controller
 public class RoomController {
 
     private final RoomService roomService;
@@ -19,28 +20,9 @@ public class RoomController {
         this.roomService = roomService;
     }
 
-    @GetMapping("/{roomNumber}")
-    public Room getRoomByRoomNumber(@PathVariable int roomNumber) {
-        return roomService.findByRoomNumber(roomNumber);
-    }
-
-    @GetMapping("/type/{type}")
-    public List<Room> getRoomsByType(@PathVariable String type) {
-        return roomService.findByType(type);
-    }
-
-    @GetMapping("/price/{price}")
-    public List<Room> getRoomsByPrice(@PathVariable Double price) {
-        return roomService.findByPrice(price);
-    }
-
-    @PostMapping
-    public Room createRoom(@RequestBody Room room) {
-        return roomService.save(room);
-    }
-
-    @GetMapping
-    public List<Room> getAllRooms() {
-        return roomService.findAll();
+    @GetMapping("/rooms")
+    public String showRoomsPage(Model model) {
+        model.addAttribute("room", new Room()); // Add an empty room object
+        return "rooms"; // This corresponds to rooms.html in templates directory
     }
 }

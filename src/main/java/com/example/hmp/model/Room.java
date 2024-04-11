@@ -12,72 +12,72 @@ import java.util.Set;
 @Entity
 @Table(name = "ROOM")
 public class Room {
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-  @Column(name = "room_number", nullable = false)
-  private int roomNumber;
+    @Column(name = "room_number", nullable = false)
+    private int roomNumber;
 
-  @Column(name = "type", nullable = false)
-  private String type;
+    @Column(name = "type", nullable = false)
+    private String type;
 
-  @Column(name = "price", nullable = false)
-  private Double price;
+    @Column(name = "price", nullable = false)
+    private Double price;
 
-  @OneToMany(mappedBy = "room")
-  private Set<Booking> bookings;
+    @OneToMany(mappedBy = "roomId")
+    private Set<Booking> bookings;
 
-  // Constructors, getters, and setter
-  public Room() {}
+    public Room() {}
 
-  public Room(int roomNumber, String type, double price) {
-    this.roomNumber = roomNumber;
-    this.type = type;
-    this.price = price;
-  }
+    public Room(int roomNumber, String type, Double price) {
+        this.roomNumber = roomNumber;
+        this.type = type;
+        this.price = price;
+    }
 
-  public Long getId() {
-    return id; 
-  }
+    public Long getId() {
+        return id; 
+    }
 
-  public void setId(Long id) {
-    this.id = id;
-  }
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-  public int getRoomNumber() {
-    return roomNumber;
-  }
+    public int getRoomNumber() {
+        return roomNumber;
+    }
 
-  public void setRoomNumber(int roomNumber) {
-    this.roomNumber = roomNumber;
-  }
+    public void setRoomNumber(int roomNumber) {
+        this.roomNumber = roomNumber;
+    }
 
-  public String getType() {
-    return type;
-  }
+    public String getType() {
+        return type;
+    }
 
-  public void setType(String type) {
-    this.type = type;
-  }
+    public void setType(String type) {
+        this.type = type;
+    }
 
-  public double getPrice() {
-    return price;
-  }
+    public Double getPrice() {
+        return price;
+    }
 
-  public void setPrice(double price) {
-    this.price = price;
-  }
+    public void setPrice(Double price) {
+        this.price = price;
+    }
 
-  public Set<Booking> getBookings() {
-    return bookings;
-  }
+    public Set<Booking> getBookings() {
+        return bookings;
+    }
 
-  public void setBookings(Set<Booking> bookings) {
-    this.bookings = bookings;
-  }
+    public void setBookings(Set<Booking> bookings) {
+        this.bookings = bookings;
+    }
 
-  public String toString() {
-    return "Room{id=" + id + ", roomNumber='" + roomNumber + "'', type='" + type + "'', price='" + price + "'}";
-  }
+    @Override
+    public String toString() {
+        return "Room{id=" + id + ", roomNumber=" + roomNumber + ", type='" + type + "', price=" + price + "}";
+    }
 }

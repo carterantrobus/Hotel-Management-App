@@ -25,7 +25,7 @@ public class Customer {
   @Column(name = "email", nullable = false)
   private String email;
 
-  @OneToMany(mappedBy = "customer")
+  @OneToMany(mappedBy = "customerId")
   private Set<Booking> bookings;
 
   // Constructors, getters, and setter
