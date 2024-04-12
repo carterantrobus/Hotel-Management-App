@@ -13,13 +13,14 @@
         <h2>Bookings</h2>
         <nav class="nav_bar">
             <a th:href="@{/customers}">Customers</a>
-            <a th:href="@{/bookings}">Bookings</a>
             <a th:href="@{/rooms}">Rooms</a>
+            <a th:href="@{/bookings}">Bookings</a>
             <a th:href="@{/services}">Services</a>
         </nav>
     </header>
     <section>
         <!-- Your form -->
+        <p style="margin-left: 450px;">Caution: Make sure customer and room exist before creating a booking with them!</p>
         <form th:action="@{/bookings}" th:object="${booking}" method="post" class="input-fields">
             <div class="input-row">
                 <label for="customerId">Customer Id:</label>
