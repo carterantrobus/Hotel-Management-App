@@ -42,7 +42,7 @@
     <section class="customers">
         <!-- Showing submitted forms -->
         <div class="floating-box" th:each="customer : ${customers}">
-            <img th:src="@{/images/customer.png}" alt="Booking Image">
+            <img th:src="@{/images/customer.png}" alt="customer-image">
             <div class="text-column">
                 <p>Name: [[${customer.name}]]</p>
 				<p>Phone Number: [[${customer.phoneNumber}]]</p>

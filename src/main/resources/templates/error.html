@@ -4,15 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Error Page</title>
-    <!-- Add your CSS stylesheets here -->
+    <!-- Link to your CSS file -->
+    <link th:href="@{/style.css}" rel="stylesheet" type="text/css" />
 </head>
-<body>
-    <h1>Error Page</h1>
+<body class="error-body">
+	<header>
+		<h1>Error Page</h1>
+	</header>
+	
+			<h1 class="big-sorry">SORRY :(</h1>
+	
+			<div class="error-message">
+		        <p>An error occurred.</p>
+		        <p>Return to <a th:href="@{/bookings}">Bookings</a></p>
+		    </div>
     
-    <div class="error-message">
-        <p>An error occurred.</p>
-    </div>
-    
-    <p>Return to <a th:href="@{/bookings}">Bookings</a></p>
 </body>
 </html>

@@ -81,6 +81,30 @@ header {
     margin-bottom: 2px;
 }
 
+.error-body{
+	display: flex;
+    justify-content: center;
+    align-items: center;
+
+    flex-direction: column;
+}
+
+.big-sorry{
+	font-size: 48px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.error-message{
+	text-align: center;
+    margin-top: 20px;
+	
+}
+
+a .error-message{
+	color: black;
+}
+
 /* Button CSS sourced from https://getcssscan.com/css-buttons-examples */
 .button {
     align-items: center;
@@ -132,7 +156,7 @@ a{
     text-decoration: none;
 }
 a:visited{
-    color: white;
+    color: inherit;
 }
 a:hover{
     background-color:#005c95;
