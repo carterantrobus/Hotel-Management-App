@@ -116,10 +116,6 @@ Run tests with:
 ```bash
 mvn test
 ```
-
-## License
-
-<<<<<<< HEAD
 ---
 =======
 ---
