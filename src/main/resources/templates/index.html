@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Management System - Dashboard</title>
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏨</text></svg>">
+    <link th:href="@{/style.css}" rel="stylesheet" type="text/css" />
+    <style>
+        .dashboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .stat-card {
+            background: white;
+            border: 2px solid #003B95;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #003B95;
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            font-size: 1.2em;
+            color: #333;
+            font-weight: 500;
+        }
+        
+        .welcome-section {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #003B95, #005c95);
+            color: white;
+            margin-bottom: 30px;
+        }
+        
+        .welcome-title {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .welcome-subtitle {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        .quick-actions {
+            text-align: center;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            margin: 20px auto;
+            max-width: 800px;
+        }
+        
+        .quick-actions h3 {
+            color: #003B95;
+            margin-bottom: 20px;
+        }
+        
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .action-button {
+            background: #003B95;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        
+        .action-button:hover {
+            background: #005c95;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="title">HOTEL MANAGEMENT SYSTEM</h1>
+        <h2>Dashboard</h2>
+        <nav class="nav_bar">
+            <a th:href="@{/}">Dashboard</a>
+            <a th:href="@{/customers}">Customers</a>
+            <a th:href="@{/rooms}">Rooms</a>
+            <a th:href="@{/bookings}">Bookings</a>
+            <a th:href="@{/services}">Services</a>
+        </nav>
+    </header>
+
+    <div class="welcome-section">
+        <h1 class="welcome-title">Welcome to Hotel Manager</h1>
+        <p class="welcome-subtitle">Manage your hotel operations efficiently</p>
+    </div>
+
+    <div class="dashboard">
+        <div class="stat-card">
+            <div class="stat-number" th:text="${totalCustomers}">0</div>
+            <div class="stat-label">Total Customers</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number" th:text="${totalRooms}">0</div>
+            <div class="stat-label">Available Rooms</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number" th:text="${totalBookings}">0</div>
+            <div class="stat-label">Active Bookings</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number" th:text="${totalServices}">0</div>
+            <div class="stat-label">Services Offered</div>
+        </div>
+    </div>
+
+    <div class="quick-actions">
+        <h3>Quick Actions</h3>
+        <div class="action-buttons">
+            <a href="/customers" class="action-button">Manage Customers</a>
+            <a href="/rooms" class="action-button">Manage Rooms</a>
+            <a href="/bookings" class="action-button">Create Booking</a>
+            <a href="/services" class="action-button">Manage Services</a>
+        </div>
+    </div>
+</body>
+</html> 

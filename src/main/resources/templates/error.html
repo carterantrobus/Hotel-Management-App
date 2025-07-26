@@ -3,21 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Error Page</title>
-    <!-- Link to your CSS file -->
+    <title>Error - Hotel Management System</title>
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏨</text></svg>">
     <link th:href="@{/style.css}" rel="stylesheet" type="text/css" />
+    <style>
+        .error-container {
+            text-align: center;
+            padding: 50px 20px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .error-icon {
+            font-size: 4em;
+            color: #dc3545;
+            margin-bottom: 20px;
+        }
+        
+        .error-title {
+            font-size: 2.5em;
+            color: #dc3545;
+            margin-bottom: 20px;
+        }
+        
+        .error-description {
+            font-size: 1.2em;
+            color: #666;
+            margin-bottom: 30px;
+        }
+        
+        .error-actions {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .error-button {
+            background: #003B95;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        
+        .error-button:hover {
+            background: #005c95;
+            color: white;
+        }
+    </style>
 </head>
-<body class="error-body">
-	<header>
-		<h1>Error Page</h1>
-	</header>
-	
-			<h1 class="big-sorry">SORRY :(</h1>
-	
-			<div class="error-message">
-		        <p>An error occurred.</p>
-		        <p>Return to <a th:href="@{/bookings}">Bookings</a></p>
-		    </div>
-    
+<body>
+    <header>
+        <h1 class="title">HOTEL MANAGEMENT SYSTEM</h1>
+        <h2>Error</h2>
+        <nav class="nav_bar">
+            <a th:href="@{/}">Home</a>
+            <a th:href="@{/customers}">Customers</a>
+            <a th:href="@{/rooms}">Rooms</a>
+            <a th:href="@{/bookings}">Bookings</a>
+            <a th:href="@{/services}">Services</a>
+        </nav>
+    </header>
+
+    <div class="error-container">
+        <div class="error-icon">⚠️</div>
+        <h1 class="error-title">Oops! Something went wrong</h1>
+        <p class="error-description">
+            We're sorry, but an error occurred while processing your request. 
+            Please try again or navigate to a different page.
+        </p>
+        
+        <div class="error-actions">
+            <a href="/" class="error-button">Go to Home</a>
+            <a href="/bookings" class="error-button">Manage Bookings</a>
+            <a href="/rooms" class="error-button">Manage Rooms</a>
+            <a href="/customers" class="error-button">Manage Customers</a>
+        </div>
+    </div>
 </body>
 </html>

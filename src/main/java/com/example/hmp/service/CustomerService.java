@@ -41,4 +41,8 @@ public class CustomerService {
     public List<Customer> findAll() {
         return customerRepository.findAll();
     }
+    
+    public Customer findById(Long id) {
+        return customerRepository.findById(id).orElse(null);
+    }
 }
