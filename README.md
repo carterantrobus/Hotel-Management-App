@@ -2,7 +2,7 @@
 
 A comprehensive Spring Boot web application for managing hotel operations including customers, rooms, bookings, and services.
 
-## 🏨 Features
+## Features
 
 - **Customer Management**: Add, view, and manage customer information
 - **Room Management**: Manage hotel rooms with different types and pricing
@@ -12,7 +12,7 @@ A comprehensive Spring Boot web application for managing hotel operations includ
 - **Data Validation**: Comprehensive input validation and error handling
 - **Responsive UI**: Modern, user-friendly interface
 
-## 🛠️ Technology Stack
+## Technology Stack
 
 - **Backend**: Spring Boot 3.2.4, Java 17
 - **Database**: H2 In-Memory Database (with JPA/Hibernate)
@@ -20,7 +20,7 @@ A comprehensive Spring Boot web application for managing hotel operations includ
 - **Build Tool**: Maven
 - **Architecture**: MVC pattern with layered architecture
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -61,7 +61,7 @@ src/main/java/com/example/hmp/
 └── HmpApplication.java # Main application class
 ```
 
-## 🎯 Key Features Implemented
+## Key Features Implemented
 
 ### 1. **Data Validation & Error Handling**
 - Comprehensive form validation for all entities
@@ -87,7 +87,7 @@ src/main/java/com/example/hmp/
 - Consistent error handling
 - Well-documented code
 
-## 📱 Screenshots
+## Screenshots
 
 The application includes:
 - **Dashboard**: Overview with statistics and quick actions
@@ -105,7 +105,7 @@ The application uses the following default configuration:
 
 Configuration can be modified in `src/main/resources/application.properties`
 
-## 🧪 Testing
+## Testing
 
 The application includes:
 - Unit tests for business logic
@@ -117,30 +117,6 @@ Run tests with:
 mvn test
 ```
 
-## 📈 Future Enhancements
-
-Potential improvements for future versions:
-- User authentication and authorization
-- Payment processing integration
-- Email notifications
-- Advanced reporting and analytics
-- Mobile-responsive design improvements
-- Database migration to PostgreSQL/MySQL
-- API endpoints for mobile applications
-
-## 🤝 Contributing
-
-This project was developed as a collaborative effort demonstrating:
-- Spring Boot best practices
-- Clean code principles
-- User-centered design
-- Comprehensive error handling
-- Modern web development techniques
-
-## 📄 License
-
-This project is developed for educational and portfolio purposes.
+## License
 
 ---
-
-**Developed with ❤️ using Spring Boot and modern web technologies** 
