@@ -119,4 +119,8 @@ mvn test
 
 ## License
 
+<<<<<<< HEAD
 ---
+=======
+---
+>>>>>>> 1ca165a8f52707af126f60e1edae4aef05c98825
